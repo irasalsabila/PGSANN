@@ -1,0 +1,26 @@
+data:
+  dataset: dataset_d
+  seed: 42
+model:
+  d_model: 64
+  n_heads: 4
+  n_layers: 2
+  d_ffn: 128
+  dropout: 0.082077
+  pool: mean
+  tokenizer: periodic
+  use_reglu: true
+  layer_scale: 0.01
+  deep_head: true
+  head_width: 256
+train:
+  batch_size: 128
+  epochs: 150
+  lr: 0.001937550186412042
+  weight_decay: 0.0002576417442523316
+  patience: 20
+  clip_min: 0.0
+loss:
+  lam_bounds: 1.0
+  lam_tolerance: 0.8925589984899778
+  lam_monotonicity: 1.0
