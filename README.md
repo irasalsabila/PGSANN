@@ -1,5 +1,22 @@
 # PG-SANN: Physics-Guided Self-Attention Neural Network for Perovskite Band-Gap Prediction
 
+> ⚠️ **Ongoing research.** This repository documents work that is still in
+> progress. A manuscript is under preparation. Please cite the arXiv preprint
+> once available:
+>
+> ```
+> @misc{pgsann2026,
+>   title     = {PG-SANN: A Physics-Guided Self-Attention Neural Network for
+>                Perovskite Band-Gap Prediction},
+>   author    = {Pranida, Salsabila Zahirah and Krito, Jauza Akbar and
+>                Hapsari, Ayu Widowati},
+>   year      = {2026},
+>   note      = {arXiv preprint, to be announced}
+> }
+> ```
+>
+> **Authors:** Salsabila Zahirah Pranida, Jauza Akbar Krito, and Ayu Widowati Hapsari.
+
 A physics-informed tabular Transformer (FT-Transformer style) that predicts
 ABX₃ / A₂BB′X₆ perovskite band gaps. PG-SANN augments a standard
 Feature-Tokenizer Transformer with a composite physics loss that enforces three
@@ -42,7 +59,7 @@ src/baselines/   RF, SVR, XGBoost, LightGBM, CatBoost, MLP benchmark harness
 src/models/      PG-SANN architecture, physics losses, dataset, trainer, Optuna tuning
 src/analysis/    Figures, physics-consistency proof, attention, SHAP
 configs/         YAML configs (default + Optuna-tuned per dataset)
-tests/           pytest suite
+data/            Dataset provenance & download instructions (raw data not committed)
 ```
 
 ## Quick start
@@ -66,17 +83,13 @@ python3 src/models/tune.py --dataset dataset_b --trials 50
 # 5. Physics-consistency proof metrics (raw, unclamped)
 python3 src/analysis/physics_proof.py --dataset dataset_b \
     --phys-tags pg_seed1 --std-tags st_seed1
-
-# 6. Run the tests
-python3 -m pytest tests/ -q
 ```
 
 ## Physics loss
 
 The composite loss is
 
-$$\mathcal{L} = \mathcal{L}_{\text{MSE}} + \lambda_1 \mathcal{L}_{\text{bounds}}
-+ \lambda_2 \mathcal{L}_{\text{tolerance}} + \lambda_3 \mathcal{L}_{\text{monotonicity}},$$
+$$\mathcal{L} \;=\; \mathcal{L}_{\text{MSE}} \;+\; \lambda_1\,\mathcal{L}_{\text{bounds}} \;+\; \lambda_2\,\mathcal{L}_{\text{tolerance}} \;+\; \lambda_3\,\mathcal{L}_{\text{monotonicity}},$$
 
 where:
 
@@ -102,17 +115,22 @@ The paper's benchmarks (labeled A, B, C in the manuscript) are:
 - **C:** Materials Project perovskites, 9,972 rows — retrieved via the MP API
   (`src/data/download_dataset_d.py`). No `e_above_hull` stability cutoff.
 
-See `data/README.md` for full provenance and the download procedure
-(an MP API key is required for Dataset C).
+Raw data is **not committed**; see `data/README.md` for provenance and the
+download procedure (an MP API key is required for Dataset C).
 
-## Tests
+## Citation
 
-32 unit tests cover the physics losses, model, data pipeline, and utilities:
-
-```bash
-python3 -m pytest tests/ -q
+```bibtex
+@misc{pgsann2026,
+  title     = {PG-SANN: A Physics-Guided Self-Attention Neural Network for
+               Perovskite Band-Gap Prediction},
+  author    = {Pranida, Salsabila Zahirah and Krito, Jauza Akbar and
+               Hapsari, Ayu Widowati},
+  year      = {2026},
+  note      = {arXiv preprint, to be announced}
+}
 ```
 
 ## License
 
-See the repository for license details.
+Released under the [MIT License](LICENSE).

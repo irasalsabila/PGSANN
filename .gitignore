@@ -12,6 +12,9 @@ venv/
 .idea/
 .vscode/
 
+# ---- Tests (not part of the public artifact) ----
+tests/
+
 # ---- Agent tooling ----
 .kilo/
 AGENTS.md
