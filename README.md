@@ -109,10 +109,8 @@ required for Dataset C.
 
 ## Data release
 
-The reviewer-requested raw inputs and processed artifacts for public datasets A-C are
-archived as a versioned Zenodo data release. The reserved DOI is
-`10.5281/zenodo.23162501`. Older experiments, unused datasets, checkpoints, and
-exploratory scripts are outside the release scope.
+The benchmark datasets and processed artifacts are available from the Zenodo
+data release cited below.
 
 **Data citation:** Pranida, S. Z., Krito, J. A., & Hapsari, A. W. (2026).
 *PG-SANN Perovskite Band-Gap Prediction Benchmark Datasets* (Version 1.0.0)

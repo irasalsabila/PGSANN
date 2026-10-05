@@ -1,12 +1,7 @@
 # Data
 
-Raw and processed data are not tracked in the Git repository (see `.gitignore`).
-The reviewer data package contains only public datasets A-C and their processed
-artifacts. It is being prepared as a versioned Zenodo release for reviewer
-access. A DOI has been reserved for the draft deposit:
-`10.5281/zenodo.23162501`. The DOI becomes registered when the record is
-published. Redistribution terms for each upstream dataset must be verified
-before publication.
+The benchmark datasets and processed artifacts are available from the Zenodo
+data release cited below.
 
 **Citation:** Pranida, S. Z., Krito, J. A., & Hapsari, A. W. (2026).
 *PG-SANN Perovskite Band-Gap Prediction Benchmark Datasets* (Version 1.0.0)
