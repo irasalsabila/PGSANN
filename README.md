@@ -1,22 +1,5 @@
 # PG-SANN: Physics-Guided Self-Attention Neural Network for Perovskite Band-Gap Prediction
 
-> ⚠️ **Ongoing research.** This repository documents work that is still in
-> progress. A manuscript is under preparation. Please cite the arXiv preprint
-> once available:
->
-> ```
-> @misc{pgsann2026,
->   title     = {PG-SANN: A Physics-Guided Self-Attention Neural Network for
->                Perovskite Band-Gap Prediction},
->   author    = {Pranida, Salsabila Zahirah and Krito, Jauza Akbar and
->                Hapsari, Ayu Widowati},
->   year      = {2026},
->   note      = {arXiv preprint, to be announced}
-> }
-> ```
->
-> **Authors:** Salsabila Zahirah Pranida, Jauza Akbar Krito, and Ayu Widowati Hapsari.
-
 A physics-informed tabular Transformer (FT-Transformer style) that predicts
 ABX₃ / A₂BB′X₆ perovskite band gaps. PG-SANN augments a standard
 Feature-Tokenizer Transformer with a composite physics loss that enforces three
@@ -59,7 +42,7 @@ src/baselines/   RF, SVR, XGBoost, LightGBM, CatBoost, MLP benchmark harness
 src/models/      PG-SANN architecture, physics losses, dataset, trainer, Optuna tuning
 src/analysis/    Figures, physics-consistency proof, attention, SHAP
 configs/         YAML configs (default + Optuna-tuned per dataset)
-data/            Dataset provenance & download instructions (raw data not committed)
+data/            Dataset provenance, release metadata, and download instructions
 ```
 
 ## Quick start
@@ -107,29 +90,33 @@ Because unconstrained tuning collapses the physics weights toward zero,
 
 ## Datasets
 
-The paper's benchmarks (labeled A, B, C in the manuscript) are:
-- **A:** OQMD ABX₃ perovskites, 16,323 rows, Magpie descriptors, heavy
-  zero-gap skew — `github.com/chenebuah/ML_abx3_dataset`.
-- **B:** Chenebuah combined data, 1,453 rows, target `Eg` —
+The reviewer release labels the three final benchmark datasets A-C:
+- **Dataset A** (`dataset_b` internally): OQMD ABX₃ perovskites, 16,323 rows,
+  Magpie descriptors, heavy zero-gap skew —
+  `github.com/chenebuah/ML_abx3_dataset`.
+- **Dataset B** (`dataset_c` internally): Chenebuah combined data, 1,453 rows,
+  target `Eg` —
   `github.com/chenebuah/perovskite-ML`.
-- **C:** Materials Project perovskites, 9,972 rows — retrieved via the MP API
-  (`src/data/download_dataset_d.py`). No `e_above_hull` stability cutoff.
+- **Dataset C** (`dataset_d` internally): Materials Project perovskites, 9,972
+  rows — retrieved via the MP API (`src/data/download_dataset_d.py`). No
+  `e_above_hull` stability cutoff.
 
-Raw data is **not committed**; see `data/README.md` for provenance and the
-download procedure (an MP API key is required for Dataset C).
+The benchmark data and derived processed artifacts are maintained separately
+from the source repository because they include third-party datasets and
+Materials Project results. See `data/README.md` for provenance, the exact
+release file layout, and the reproducible download procedure. An MP API key is
+required for Dataset C.
 
-## Citation
+## Data release
 
-```bibtex
-@misc{pgsann2026,
-  title     = {PG-SANN: A Physics-Guided Self-Attention Neural Network for
-               Perovskite Band-Gap Prediction},
-  author    = {Pranida, Salsabila Zahirah and Krito, Jauza Akbar and
-               Hapsari, Ayu Widowati},
-  year      = {2026},
-  note      = {arXiv preprint, to be announced}
-}
-```
+The reviewer-requested raw inputs and processed artifacts for public datasets A-C are
+archived as a versioned Zenodo data release. The reserved DOI is
+`10.5281/zenodo.23162501`. Older experiments, unused datasets, checkpoints, and
+exploratory scripts are outside the release scope.
+
+**Data citation:** Pranida, S. Z., Krito, J. A., & Hapsari, A. W. (2026).
+*PG-SANN Perovskite Band-Gap Prediction Benchmark Datasets* (Version 1.0.0)
+[Data set]. Zenodo. https://doi.org/10.5281/zenodo.23162501
 
 ## License
 

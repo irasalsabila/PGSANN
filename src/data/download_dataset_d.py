@@ -6,7 +6,7 @@ Usage:
     python src/data/download_dataset_d.py
 
 Outputs:
-    data/raw/dataset_d/mp_perovskites.csv
+    data/raw/dataset_d/dataset_c_materials_project.csv
 
 Strategy: query Materials Project Summary for materials with 3-6 elements
 (perovskites are ternary/quaternary ABX3 or A2BB'X6), then keep only those whose
@@ -46,7 +46,7 @@ def main():
     out_dir = os.path.join(os.path.dirname(os.path.dirname(
         os.path.dirname(os.path.abspath(__file__)))), "data", "raw", "dataset_d")
     os.makedirs(out_dir, exist_ok=True)
-    out = os.path.join(out_dir, "mp_perovskites.csv")
+    out = os.path.join(out_dir, "dataset_c_materials_project.csv")
 
     print("Querying Materials Project Summary ...", flush=True)
     with MPRester(api_key) as mpr:

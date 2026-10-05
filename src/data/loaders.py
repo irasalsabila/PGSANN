@@ -13,11 +13,11 @@ DATASET_A_CSV = os.path.join(
     "lead_free_band_gap",
     "LF_final_ABX3+A2BbX6.csv",
 )
-DATASET_B_CSV = os.path.join(DATA_DIR, "dataset_b", "oqmd_data.csv")
+DATASET_B_CSV = os.path.join(DATA_DIR, "dataset_b", "dataset_a_oqmd.csv")
 DATASET_B_VARIANT_CSV = os.path.join(DATA_DIR, "dataset_b", "abc3_data.csv")
-DATASET_C_CSV = os.path.join(DATA_DIR, "dataset_c", "combine.csv")
+DATASET_C_CSV = os.path.join(DATA_DIR, "dataset_c", "dataset_b_chenebuah.csv")
 DATASET_E_CSV = os.path.join(DATA_DIR, "dataset_e", "double_perovskites_gap.csv")
-DATASET_D_CSV = os.path.join(DATA_DIR, "dataset_d", "mp_perovskites.csv")
+DATASET_D_CSV = os.path.join(DATA_DIR, "dataset_d", "dataset_c_materials_project.csv")
 
 
 @dataclass
